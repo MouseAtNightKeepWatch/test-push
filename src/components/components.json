@@ -1,0 +1,5 @@
+[
+	{"name": "layout", "path": "./components/layout"},
+	{"name": "modal", "path": "./components/modal"},
+	{"name": "drawer", "path": "./components/drawer"}
+]

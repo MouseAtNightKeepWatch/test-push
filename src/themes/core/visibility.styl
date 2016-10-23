@@ -1,0 +1,69 @@
+.ellipsis
+  text-overflow ellipsis
+  white-space nowrap
+  overflow hidden
+
+.disabled, [disabled]
+  opacity .6 !important
+  &, * // @stylint ignore
+    cursor not-allowed !important
+.hidden
+  display none !important
+.invisible
+  visibility hidden !important
+.transparent
+  background transparent !important
+
+.dimmed, .light-dimmed
+  &:after
+    content ''
+    position absolute
+    top 0
+    right 0
+    bottom 0
+    left 0
+.dimmed:after
+  background $dimmed-background !important
+.light-dimmed:after
+  background $light-dimmed-background !important
+body
+  &.dimmed, &.light-dimmed
+    &:after
+      z-index $z-body-dimmed !important
+.z-absolute
+  z-index $z-absolute !important
+
+
+@keyframes quasar-highlight
+  0%
+    background $lime-6
+  100%
+    background transparent
+
+.highlight-and-fade
+  animation quasar-highlight 2s
+
+@keyframes quasar-rotate
+  0%
+    transform rotate(0)
+  25%
+    transform rotate(90deg)
+  50%
+    transform rotate(180deg)
+  75%
+    transform rotate(270deg)
+  100%
+    transform rotate(360deg)
+
+for type in desktop mobile cordova ios mat touch no-touch within-iframe
+  body:not(.{type}) .{type}-only,
+  body.{type} .{type}-hide
+    display none !important
+
+@media all and (orientation portrait)
+  .orientation-landscape
+    display none !important
+
+@media all and (orientation landscape)
+  .orientation-portrait
+    display none !important
